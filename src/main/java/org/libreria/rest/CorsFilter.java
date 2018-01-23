@@ -1,3 +1,5 @@
+package org.libreria.rest;
+
 @Provider
 public class CorsFilter implements ContainerResponseFilter {
  
