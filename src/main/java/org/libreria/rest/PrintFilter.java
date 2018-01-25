@@ -4,6 +4,7 @@ import java.io.IOException;
 import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseFilter;
+import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.ext.Provider;
 
 
@@ -20,8 +21,9 @@ public class PrintFilter implements ContainerResponseFilter, ContainerRequestFil
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        String string = java.net.URLDecoder.decode(requestContext.getEntityStream(), "UTF-8");
-        System.out.println("request body: " + string);
+        
+        java.util.Scanner s = new java.util.Scanner(requestContext.getEntityStream()).useDelimiter("\\A");            
+        System.out.println("request body: " + s.hasNext() ? s.next() : "");
     }
 
 
