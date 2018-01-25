@@ -23,7 +23,7 @@ public class PrintFilter implements ContainerResponseFilter, ContainerRequestFil
     public void filter(ContainerRequestContext requestContext) throws IOException {
         
         java.util.Scanner s = new java.util.Scanner(requestContext.getEntityStream()).useDelimiter("\\A");            
-        System.out.println("request body: " + s.hasNext() ? s.next() : "");
+        System.out.println(s.hasNext() ? s.next() : "");
     }
 
 
