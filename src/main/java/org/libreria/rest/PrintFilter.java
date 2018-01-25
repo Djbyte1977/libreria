@@ -20,7 +20,7 @@ public class PrintFilter implements ContainerResponseFilter, ContainerRequestFil
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        String string = IOUtils.toString(requestContext.getEntityStream());
+        String string = java.net.URLDecoder.decode(requestContext.getEntityStream(), "UTF-8");
         System.out.println("request body: " + string);
     }
 
